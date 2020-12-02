@@ -9,8 +9,8 @@ The program created makes use of the Java programming language. No UI has been i
 
 The <b>steps</b> to be able to run the code are as follows:
 1. Download the repository onto a computing device. 
-2. Open the project in a compatible Java IDE (recommended: IntelliJ)
-3. Run the program once the IDE fully loads
+2. Open the project in a compatible Java IDE (recommended: IntelliJ).
+3. Run the program once the IDE fully loads.
 <br>
 <b>The entry class file (where the main function is located) is named:</b><br>
 LexicalAnalyzer in the src -> LexicalAnalyzer.java file <br>
