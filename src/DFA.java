@@ -97,39 +97,43 @@ public class DFA {
     public String identifyState(String word) {
         // maximal munch code, return the final state
         Stack<Pair<States, Integer>> stack = new Stack<>();
-        int i = 0;
+        int i = 1;
+        States state;
 
-        while (true) {
-            States state = States.Q0;
+        // removed the while(true) loop as it only needs to traverse once for this case
+            state = States.Q0;
             Pair<States, Integer> pair = new Pair<>(States.Qbottom, i);
             stack.push(pair);
 
-            while (i < word.length() && state.transition(word.charAt(i)) != null) {
-                if (state.transition(word.charAt(i)).accept) {
+            while (i <= word.length() && state.transition(word.charAt(i-1)) != null) {
+                if (state.accept) {
                     stack.empty();
                 }
                 pair = new Pair<>(state, i);
-                state = state.transition(word.charAt(i));
                 stack.push(pair);
+                state = state.transition(word.charAt(i-1));
 
                 i++;
             }
 
             while (!state.accept) {
                 if (stack.isEmpty()){
-                    return state.toString();
+                    return States.Qdead.toString();
                 }
 
-                Pair<States, Integer> top = stack.pop();
+                state = stack.peek().getKey();
+                i = stack.peek().getValue();
+                stack.pop();
 
-                if (top == new Pair<>(States.Qbottom, 0)) {
-                    return state.toString();
+                if (state == States.Qbottom) {  // tokenization is impossible, thus a dead state
+                    return States.Qdead.toString();
                 }
             }
 
-            if (i >= word.length()) {
+            if (i > word.length()) {
                 return state.toString();
             }
-        }
+            else       // hit a dead state if the length of input exceeds the length to the final state path
+                return States.Qdead.toString();
     }
 }
