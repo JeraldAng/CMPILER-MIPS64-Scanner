@@ -16,4 +16,4 @@ The <b>steps</b> to be able to run the code are as follows:
 LexicalAnalyzer in the src -> LexicalAnalyzer.java file <br>
 
 <b>To change the input:</b><br>
-The program read a file called "input.txt" located in the main directory. Simply change the contents of this file to process a new input. To check the output of the file, the "output.txt" in the same directory stores the result computed by the program. Coding-wise, these are found in lines 102 and 89 of the LexicalAnalyzer.java file respectfully. 
+The program read a file called "input.txt" located in the main directory. Simply change the contents of this file to process a new input. To check the output of the file, the "output.txt" in the same directory stores the result computed by the program. Coding-wise, these are found in lines 113 and 100 of the LexicalAnalyzer.java file respectfully. 
